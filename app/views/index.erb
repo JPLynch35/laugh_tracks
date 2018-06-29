@@ -1,0 +1,25 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <h1>Comedians</h1>
+</head>
+<body>
+  <header>
+  <section>
+    <% @comedians.each do |comedian| %>
+      <%= comedian.name %>
+      <div>age: <%= comedian.age %></div></br>
+    <% end %>
+    <% @comedians.each do |comedian| %>
+      <% com_id = comedian.id %>
+      <%= comedian.name %>
+      <ul>
+        <li>
+          <%= comedian.find_specials(com_id) %>
+        </li>
+      </ul>
+    <% end %>
+  </section>
+</body>
+</html>
