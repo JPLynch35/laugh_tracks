@@ -12,4 +12,17 @@ RSpec.describe Comedian do
       end
     end
   end
+  describe 'methods' do
+    it 'outputs all methods of a comedian' do
+      mike = Comedian.create(name: "Mike Birbiglia", age: 39)
+      Special.create(name: "What I Should Have Said Was Nothing", comedian_id: mike.id)
+      Special.create(name: "My Girlfriiend's Boyfriend", comedian_id: mike.id)
+      Special.create(name: "Thank God for Jokes", comedian_id: mike.id)
+
+      com_id = mike.id
+      specials = mike.find_specials(com_id).name
+
+      expect(specials.name).to include("What I Should Have Said Was Nothing")
+    end
+  end
 end
