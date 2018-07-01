@@ -12,17 +12,13 @@ RSpec.describe Comedian do
       end
     end
   end
-  describe 'methods' do
-    it 'outputs all methods of a comedian' do
-      mike = Comedian.create(name: "Mike Birbiglia", age: 39)
-      Special.create(name: "What I Should Have Said Was Nothing", comedian_id: mike.id)
-      Special.create(name: "My Girlfriiend's Boyfriend", comedian_id: mike.id)
-      Special.create(name: "Thank God for Jokes", comedian_id: mike.id)
+  describe 'Class Methoods' do
+    it '.average_age provides the average age of all comedians' do
+      mike = Comedian.create(name: "Mike Birbiglia", age: 40)
+      paul = Comedian.create(name: "Paul Mooney", age: 50)
 
-      com_id = mike.id
-      specials = mike.find_specials(com_id).name
-
-      expect(specials.name).to include("What I Should Have Said Was Nothing")
+      expected = Comedian.average_age
+      expect(expected).to eq(45)
     end
   end
 end

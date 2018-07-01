@@ -7,18 +7,15 @@
 <body>
   <header>
   <section>
+    <%= "Average Age: #{Comedian.average_age.to_i}" %></br></br>
     <% @comedians.each do |comedian| %>
       <%= comedian.name %>
-      <div>age: <%= comedian.age %></div></br>
-    <% end %>
-    <% @comedians.each do |comedian| %>
-      <% com_id = comedian.id %>
-      <%= comedian.name %>
-      <ul>
-        <li>
-          <%= comedian.find_specials(com_id).name %>
-        </li>
-      </ul>
+      <div>Age: <%= comedian.age %></div>
+      <div>Specials:</div>
+      <% comedian.specials.each do |special| %>
+          </ul><li><%= special.name %></li>
+      <% end %>
+      </br>
     <% end %>
   </section>
 </body>
