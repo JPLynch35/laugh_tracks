@@ -21,4 +21,15 @@ RSpec.describe Comedian do
       expect(expected).to eq(45)
     end
   end
+  describe 'Instance Methoods' do
+    it '.special_count provides the count of specials for a comedian' do
+      mike = Comedian.create(name: "Mike Birbiglia", age: 40)
+      Special.create(name: "What I Should Have Said Was Nothing", comedian_id: mike.id)
+      Special.create(name: "My Girlfriiend's Boyfriend", comedian_id: mike.id)
+      Special.create(name: "Thank God for Jokes", comedian_id: mike.id)
+
+      expected = mike.special_count
+      expect(expected).to eq(3)
+    end
+  end
 end
