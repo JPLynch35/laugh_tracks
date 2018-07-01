@@ -7,7 +7,7 @@
 <body>
   <header>
   <section>
-    <%= "Average Age: #{Comedian.average_age.to_i}" %></br></br>
+    <%= "Average age: #{Comedian.average_age.to_i}" %></br></br>
     <% @comedians.each do |comedian| %>
       <%= comedian.name %>
       <div>Age: <%= comedian.age %></div>
